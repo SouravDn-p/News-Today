@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default class NewsItem extends Component {
-  render() {
-    let {title,description, imageUrl , url,publishedAt,name} = this.props;
+export default function NewsItem (props) {
+    let {title,description, imageUrl , url,publishedAt,name} = props;
     return (
       <>
         <div>
-            <div  className="card bg-dark bg-gradient my-3">
-                    < span class="position-absolute top-0  translate-middle badge rounded-pill bg-danger" style={{zIndex:'1',left:'90%'}} >{name ? name:'unknown'}</span>
-                    {console.log(name ? name:'unknown')}
+            <div  className="card bg-dark bg-gradient my-3"   >
+                    <div className='d-flex' style={{right:'0',position:'absolute',}} >
+                    <span className=" badge bg-danger p-absolute" >{name ? name:'unknown'}</span>
+                    </div>
 
                     <img src={imageUrl ? imageUrl :"https://www.hindustantimes.com/ht-img/img/2023/09/05/1600x900/KYLIE_1693916311994_1693916312633.jpg"}  className="card-img-top" alt="..." style={{width:"100%",height:'200px'}} />
                     
@@ -24,5 +24,4 @@ export default class NewsItem extends Component {
         
       </>
     )
-  }
 }
